@@ -2,7 +2,14 @@
 
 ## Metal Album Cover Style Image Converter
 
+Lil python script that takes an image and converts it to a high grain/constrast heavy metal abum cover style, think Burzum, etc. 
+
+Fancy Description:
+
 This repository contains a script and instructions to transform a character portrait into a black and white grainy image typical of Burzum and other metal band album covers. The processed image maintains high detail while incorporating increased contrast and graininess to achieve the desired aesthetic.
+
+### License
+This is a propietary script, but free to use - please use it as reference and give credit if used in any production, product, publication, etc: https://github.com/ErikBurdett/brutify
 
 ### Files
 - `input_image.png`: The original colored image to be transformed.
