@@ -11,6 +11,13 @@ This repository contains a script and instructions to transform a character port
 ### License
 This is a propietary script, but free to use - please use it as reference and give credit if used in any production, product, publication, etc: https://github.com/ErikBurdett/brutify
 
+### Example Images:
+#### Input Image
+![Input Image](examples/input_image.png)
+
+#### Output Image
+![Output Image](examples/output_image.png)
+
 ### Files
 - `input_image.png`: The original colored image to be transformed.
 - `output_image.png`: The final black and white grainy image with enhanced contrast and details.
