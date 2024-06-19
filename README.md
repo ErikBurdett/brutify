@@ -90,8 +90,6 @@ Install the required libraries using pip:
 ```bash
 
 pip install pillow numpy
-Author
-This image and processing script were created by [Your Name]. Feel free to reach out for any questions or further customizations.
 ```
 ### License
 This is a propietary script, but free to use - please use it as reference and give credit if used in any production, product, publication, etc: https://github.com/ErikBurdett/brutify
