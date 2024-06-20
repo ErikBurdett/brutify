@@ -19,6 +19,7 @@ def process_image(image_path, output_path, output_reversed_path):
         image_bw = ImageOps.grayscale(image)
 
         # Determine grain amount and enhancement levels based on resolution
+        # Needs some tweaking for different resolutions, specially if higher than 1000 pixels
         width, height = image.size
         if max(width, height) <= 1000:
             grain_amount = 0.1  # Reduced grain amount for lower resolution
@@ -50,6 +51,9 @@ def process_image(image_path, output_path, output_reversed_path):
     except Exception as e:
         print(f"Error processing file {image_path}: {e}")
 
+# input folder
+input_folder = 'input'
+
 # Function to find the next available iteration number
 def get_next_iteration():
     iteration = 1
@@ -61,23 +65,18 @@ def get_next_iteration():
         iteration += 1
     return iteration
 
-# Define input folder
-input_folder = 'input'
-
-# Get the next iteration number
+# output folders with iteration number
 iteration = get_next_iteration()
-
-# Define output folders with iteration number
 output_folder = f'output_{iteration}'
 output_reversed_folder = f'output_reversed_{iteration}'
 
-# Create output folders if they don't exist
+
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 if not os.path.exists(output_reversed_folder):
     os.makedirs(output_reversed_folder)
 
-# Process each image in the input folder
+# Processing
 for filename in os.listdir(input_folder):
     if filename.endswith(('.png', '.jpg', '.jpeg', '.webp')):  # Added .webp to the list
         input_path = os.path.join(input_folder, filename)
