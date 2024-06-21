@@ -14,7 +14,7 @@ This is a proprietary script, but free to use. Please use it as a reference and 
 
 **Input Image**
 
-![Input Image](examples/input_image.png)
+![Input Image](examples/original_image.png)
 
 **Output Image**
 
