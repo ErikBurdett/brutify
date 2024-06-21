@@ -14,11 +14,11 @@ This is a proprietary script, but free to use. Please use it as a reference and 
 
 **Input Image**
 
-![Input Image](input_image.png)
+![Input Image](examples/input_image.png)
 
 **Output Image**
 
-![Output Image](output_image.png)
+![Output Image](examples/output_image.png)
 
 ## Files
 
