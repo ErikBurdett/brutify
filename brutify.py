@@ -19,7 +19,6 @@ def process_image(image_path, output_path, output_reversed_path):
         image_bw = ImageOps.grayscale(image)
 
         # Determine grain amount and enhancement levels based on resolution
-        # Needs some tweaking for different resolutions, specially if higher than 1000 pixels
         width, height = image.size
         if max(width, height) <= 1000:
             grain_amount = 0.1  # Reduced grain amount for lower resolution
@@ -42,17 +41,14 @@ def process_image(image_path, output_path, output_reversed_path):
         # Apply a strong sharpening filter to enhance details
         image_sharpened = image_grainy.filter(ImageFilter.UnsharpMask(radius=2, percent=200, threshold=3))
 
-        # Save the final image
-        image_sharpened.save(output_path)
+        # Save the final image as .png
+        image_sharpened.save(output_path, 'PNG')
 
         # Reverse black and white
         image_reversed = ImageOps.invert(image_sharpened)
-        image_reversed.save(output_reversed_path)
+        image_reversed.save(output_reversed_path, 'PNG')
     except Exception as e:
         print(f"Error processing file {image_path}: {e}")
-
-# input folder
-input_folder = 'input'
 
 # Function to find the next available iteration number
 def get_next_iteration():
@@ -65,21 +61,28 @@ def get_next_iteration():
         iteration += 1
     return iteration
 
-# output folders with iteration number
+# Define input folder
+input_folder = 'input'
+
+# Get the next iteration number
 iteration = get_next_iteration()
+
+# Define output folders with iteration number
 output_folder = f'output_{iteration}'
 output_reversed_folder = f'output_reversed_{iteration}'
 
-
+# Create output folders if they don't exist
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 if not os.path.exists(output_reversed_folder):
     os.makedirs(output_reversed_folder)
 
-# Processing
+# Process each image in the input folder
+counter = 1
 for filename in os.listdir(input_folder):
     if filename.endswith(('.png', '.jpg', '.jpeg', '.webp')):  # Added .webp to the list
         input_path = os.path.join(input_folder, filename)
-        output_path = os.path.join(output_folder, filename)
-        output_reversed_path = os.path.join(output_reversed_folder, filename)
+        output_path = os.path.join(output_folder, f"brutified-{counter}.png")
+        output_reversed_path = os.path.join(output_reversed_folder, f"brutified-{counter}_reversed.png")
         process_image(input_path, output_path, output_reversed_path)
+        counter += 1
