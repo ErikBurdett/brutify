@@ -138,6 +138,7 @@ venv.bak/
 .idea/
 
 # Ignore images
+input_old/
 input/
 output_*/
 output_reversed_*/
